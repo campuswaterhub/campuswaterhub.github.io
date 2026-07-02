@@ -1,1 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Campus Water Hub | Regenwasser für die Wasserversorgung der Zukunft</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(180deg,#03111d,#071f35,#0a2f50);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ---------------- NAVIGATION ---------------- */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(5,15,30,0.55);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+nav{
+    max-width:1400px;
+    margin:auto;
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo-text{
+    font-size:1.3rem;
+    font-weight:800;
+    color:#6ad7ff;
+}
+
+.menu{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#6ad7ff;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 20px;
+    position:relative;
+    background:
+    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.65)),
+    url("images/panorama-campus-water-hub.jpg")
+    center center/cover no-repeat;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top right,
+    rgba(106,215,255,0.25),
+    transparent 55%);
+}
+
+.hero-content{
+    max-width:950px;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:clamp(3rem,9vw,6rem);
+    font-weight:800;
+    margin-bottom:25px;
+    line-height:1;
+}
+
+.hero span{
+    color:#6ad7ff;
+}
+
+.hero p{
+    font-size:1.25rem;
+    line-height:1.8;
+    opacity:0.9;
+    margin-bottom:40px;
+}
+
+.button{
+    display:inline-block;
+    padding:18px 38px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#0db7ff,#57d5ff);
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 35px rgba(13,183,255,0.35);
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+section{
+    padding:110px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:70px;
+    color:#6ad7ff;
+}
+
+/* ---------------- GLASS CARDS ---------------- */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(16px);
+    border-radius:25px;
+    padding:35px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#6ad7ff;
+    box-shadow:0 20px 50px rgba(0,120,255,0.25);
+}
+
+.card h3{
+    margin-bottom:20px;
+    color:#6ad7ff;
+}
+
+.card p{
+    line-height:1.8;
+    opacity:0.85;
+}
+
+/* ---------------- GALERIE ---------------- */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.gallery img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+/* ---------------- TAGEBUCH ---------------- */
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
+
+.entry{
+    padding:30px;
+    margin-bottom:25px;
+    border-left:4px solid #6ad7ff;
+    background:rgba(255,255,255,0.05);
+    border-radius:0 20px 20px 0;
+}
+
+.entry h4{
+    color:#6ad7ff;
+    margin-bottom:10px;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#b6d6e8;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:850px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .section-title{
+        font-size:2.2rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+    <img src="images/logo-placeholder.png" alt="Projektlogo">
+    <div class="logo-text">Campus Water Hub</div>
+</div>
+
+<ul class="menu">
+    <li><a href="#start">Start</a></li>
+    <li><a href="#projekt">Projekt</a></li>
+    <li><a href="#forschung">Forschung</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#tagebuch">Betriebstagebuch</a></li>
+    <li><a href="#partner">Partner</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero" id="start">
+
+<div class="hero-content">
+
+<h1>
+Campus <span>Water Hub</span>
+</h1>
+
+<p>
+Dezentrale Regenwasseraufbereitung auf dem Campus –
+für resiliente Wassersysteme und die Wasserversorgung der Zukunft.
+</p>
+
+<a href="#projekt" class="button">
+Mehr erfahren
+</a>
+
+</div>
+
+</section>
+
+<section id="projekt">
+
+<h2 class="section-title">Das Projekt</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🌧 Regenwasser nutzen</h3>
+<p>
+Platzhaltertext zur Sammlung, Speicherung und Aufbereitung
+von Regenwasser auf dem Campus.
+</p>
+</div>
+
+<div class="card">
+<h3>💧 Wasser der Zukunft</h3>
+<p>
+Platzhalter für Inhalte zum Forschungsverbund und den
+zukünftigen Herausforderungen der Wasserversorgung.
+</p>
+</div>
+
+<div class="card">
+<h3>🏛 Living Lab Campus</h3>
+<p>
+Platzhaltertext zur Nutzung des Universitätscampus
+als Demonstrations- und Forschungsstandort.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="forschung">
+
+<h2 class="section-title">Forschung</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Monitoring</h3>
+<p>Messdaten, Sensorik und Wasserqualitätsüberwachung.</p>
+</div>
+
+<div class="card">
+<h3>Aufbereitung</h3>
+<p>Innovative Verfahren für dezentrale Wassersysteme.</p>
+</div>
+
+<div class="card">
+<h3>Simulation</h3>
+<p>Digitale Modelle für urbane Wasserinfrastrukturen.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="galerie">
+
+<h2 class="section-title">Fotogalerie</h2>
+
+<div class="gallery">
+
+<img src="images/gallery1.jpg" alt="">
+<img src="images/gallery2.jpg" alt="">
+<img src="images/gallery3.jpg" alt="">
+<img src="images/gallery4.jpg" alt="">
+<img src="images/gallery5.jpg" alt="">
+<img src="images/gallery6.jpg" alt="">
+
+</div>
+
+</section>
+
+<section id="tagebuch">
+
+<h2 class="section-title">Betriebstagebuch</h2>
+
+<div class="timeline">
+
+<div class="entry">
+<h4>12.03.2026</h4>
+<p>Platzhalter für Baufortschritt und Inbetriebnahme.</p>
+</div>
+
+<div class="entry">
+<h4>08.05.2026</h4>
+<p>Platzhalter für erste Betriebsdaten und Ergebnisse.</p>
+</div>
+
+<div class="entry">
+<h4>17.06.2026</h4>
+<p>Platzhalter für Wartung, Optimierung und Monitoring.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="partner">
+
+<h2 class="section-title">Projektpartner</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Universität</h3>
+<p>Platzhalter für Hochschulpartner.</p>
+</div>
+
+<div class="card">
+<h3>Wirtschaft</h3>
+<p>Platzhalter für Industrie- und Praxispartner.</p>
+</div>
+
+<div class="card">
+<h3>Förderung</h3>
+<p>Platzhalter für Fördermittelgeber und Programme.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="kontakt">
+
+<h2 class="section-title">Kontakt</h2>
+
+<div class="card" style="max-width:700px;margin:auto;text-align:center;">
+<h3>Campus Water Hub</h3>
+<p>Platzhalter für Ansprechpartner und Kontaktdaten.</p>
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Campus Water Hub · Forschung für die Wasserversorgung der Zukunft
+
+</footer>
+
+</body>
+</html>
